@@ -12,15 +12,296 @@
     <meta property="og:type" content="website">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> <!-- Tambahkan ini -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-900 text-white">
   <div id="root">
-    <!-- ...existing code... -->
-    <!-- Seluruh isi body tetap, kecuali <style> dan <script> dihapus -->
-    <!-- ...existing code... -->
+    <!-- Header dan Navigasi -->
+    <header>
+      <nav class="bg-black/20 backdrop-blur-lg border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16 items-center">
+            <a class="flex items-center space-x-2" href="#" onclick="showPage('home-page', this)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bitcoin h-8 w-8 text-yellow-400">
+                <path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.908 1.042-.347 1.97m1.563-8.864c4.924.869 6.14-6.025 1.215-6.893m-1.215 6.893-3.94-.694m5.155-6.2L8.29 4.26m5.908 1.042.348-1.97M7.48 20.364l3.126-17.727"></path>
+              </svg>
+              <span class="text-xl font-bold text-white">BIFINANCE DAISO 2</span>
+            </a>
+            
+            <!-- Menu Navigasi Desktop -->
+            <div class="desktop-nav flex items-center space-x-8">
+              <a class="nav-link flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors bg-yellow-400/20 text-yellow-400 active" href="#" onclick="showPage('home-page', this)">
+                <span>🏠</span>
+                <span>Home</span>
+              </a>
+              <a class="nav-link flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-300 hover:text-white hover:bg-white/10" href="#" onclick="showPage('deposit-page', this)">
+                <span>💰</span>
+                <span>Deposit</span>
+              </a>
+              <a class="nav-link flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-300 hover:text-white hover:bg-white/10" href="#" onclick="showPage('mentor-page', this)">
+                <span>👨‍🏫</span>
+                <span>Mentor</span>
+              </a>
+              <a class="nav-link flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-300 hover:text-white hover:bg-white/10" href="#" onclick="showPage('gathering-page', this)">
+                <span>🤝</span>
+                <span>Gathering</span>
+              </a>
+              <a class="nav-link flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-300 hover:text-white hover:bg-white/10" href="#" onclick="showPage('about-us-page', this)">
+                <span>ℹ️</span>
+                <span>About</span>
+              </a>
+            </div>
+            
+            <!-- Tombol Menu Mobile -->
+            <div class="mobile-nav md:hidden flex items-center">
+              <button aria-label="Open menu" id="menu-toggle" class="inline-flex items-center justify-center gap-2 text-sm font-medium h-9 rounded-md px-3 text-white bg-transparent border-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6">
+                  <line x1="4" x2="20" y1="12" y2="12"></line>
+                  <line x1="4" x2="20" y1="6" y2="6"></line>
+                  <line x1="4" x2="20" y1="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      
+      <!-- Menu Dropdown untuk Mobile -->
+      <div id="mobile-menu" class="mobile-nav-links max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <a class="nav-link flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-300 hover:text-white hover:bg-white/10 active" href="#" onclick="showPage('home-page', this)">
+          <span>🏠</span>
+          <span>Home</span>
+        </a>
+        <a class="nav-link flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-300 hover:text-white hover:bg-white/10" href="#" onclick="showPage('deposit-page', this)">
+          <span>💰</span>
+          <span>Deposit</span>
+        </a>
+        <a class="nav-link flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-300 hover:text-white hover:bg-white/10" href="#" onclick="showPage('mentor-page', this)">
+          <span>👨‍🏫</span>
+          <span>Mentor</span>
+        </a>
+        <a class="nav-link flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-300 hover:text-white hover:bg-white/10" href="#" onclick="showPage('gathering-page', this)">
+          <span>🤝</span>
+          <span>Gathering</span>
+        </a>
+        <a class="nav-link flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-300 hover:text-white hover:bg-white/10" href="#" onclick="showPage('about-us-page', this)">
+          <span>ℹ️</span>
+          <span>About</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="py-16">
+      <!-- Konten untuk Halaman Utama -->
+      <section id="home-page" class="page-section active">
+        <div class="relative py-20 px-4 sm:px-6 lg:px-8">
+          <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+              Welcome to the Future of
+              <span class="block bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Cryptocurrency</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              Join thousands of traders in our secure platform. Learn from experts, attend exclusive gatherings, and maximize your crypto potential with our advanced tools and mentorship programs.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm h-11 rounded-md px-8 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold" href="#" onclick="showPage('deposit-page', this)">Start Trading</a>
+              <a class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium h-11 rounded-md px-8 border bg-background hover:text-accent-foreground border-white/20 text-white hover:bg-white/10" href="#" onclick="showPage('gathering-page', this)">Join Community</a>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Bagian Fitur -->
+        <div class="py-20 px-4 sm:px-6 lg:px-8">
+          <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-12" style="color:#fff; text-shadow: 0 0 16px #7c3aed, 0 0 4px #db2777; letter-spacing:0.04em;">Why Choose <span style="color:#fbbf24; text-shadow: 0 0 12px #fbbf24;">CryptoHub?</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <!-- Card 1: Smart Trading -->
+              <div class="rounded-lg border shadow-sm bg-white/5 border-white/10 backdrop-blur-lg hover:bg-white/10 transition-colors">
+                <div class="flex flex-col space-y-1.5 p-6 text-center">
+                  <div class="flex justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up h-8 w-8 text-green-400"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+                  </div>
+                  <h3 class="text-2xl font-semibold leading-none tracking-tight text-white">Smart Trading</h3>
+                </div>
+                <div class="p-6 pt-0">
+                  <p class="text-sm text-gray-300 text-center">Advanced algorithms for optimal cryptocurrency trading strategies</p>
+                </div>
+              </div>
+              <!-- Card 2: Secure Platform -->
+              <div class="rounded-lg border shadow-sm bg-white/5 border-white/10 backdrop-blur-lg hover:bg-white/10 transition-colors">
+                <div class="flex flex-col space-y-1.5 p-6 text-center">
+                  <div class="flex justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield h-8 w-8 text-blue-400"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+                  </div>
+                  <h3 class="text-2xl font-semibold leading-none tracking-tight text-white">Secure Platform</h3>
+                </div>
+                <div class="p-6 pt-0">
+                  <p class="text-sm text-gray-300 text-center">Bank-level security with multi-layer encryption protection</p>
+                </div>
+              </div>
+              <!-- Card 3: Expert Mentors -->
+              <div class="rounded-lg border shadow-sm bg-white/5 border-white/10 backdrop-blur-lg hover:bg-white/10 transition-colors">
+                <div class="flex flex-col space-y-1.5 p-6 text-center">
+                  <div class="flex justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users h-8 w-8 text-purple-400"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                  </div>
+                  <h3 class="text-2xl font-semibold leading-none tracking-tight text-white">Expert Mentors</h3>
+                </div>
+                <div class="p-6 pt-0">
+                  <p class="text-sm text-gray-300 text-center">Learn from experienced traders and industry professionals</p>
+                </div>
+              </div>
+              <!-- Card 4: Fast Execution -->
+              <div class="rounded-lg border shadow-sm bg-white/5 border-white/10 backdrop-blur-lg hover:bg-white/10 transition-colors">
+                <div class="flex flex-col space-y-1.5 p-6 text-center">
+                  <div class="flex justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-8 w-8 text-yellow-400"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
+                  </div>
+                  <h3 class="text-2xl font-semibold leading-none tracking-tight text-white">Fast Execution</h3>
+                </div>
+                <div class="p-6 pt-0">
+                  <p class="text-sm text-gray-300 text-center">Lightning-fast transaction processing and real-time updates</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Bagian Statistik -->
+        <div class="py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
+          <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              <div>
+                <div class="text-4xl font-bold text-yellow-400 mb-2">50K+</div>
+                <div class="text-gray-300">Active Traders</div>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-green-400 mb-2">$2.5B+</div>
+                <div class="text-gray-300">Trading Volume</div>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-blue-400 mb-2">99.9%</div>
+                <div class="text-gray-300">Uptime</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Konten untuk Halaman Deposit -->
+      <section id="deposit-page" class="page-section">
+        <div class="max-w-3xl mx-auto py-16 px-4">
+          <h2 class="text-4xl font-bold text-center text-white mb-8">Deposit Funds Langsung di Daiso 2</h2>
+          <div class="bg-black/20 backdrop-blur-lg rounded-lg p-8">
+<img src="C:\Users\Administrator\Downloads\photo_2025-09-07_18-55-44.jpg" alt="Deskripsi Gambar" style="width: otomatis; height: otomatis;">           
+                    <p class="text-center text-lg text-gray-300 mb-4" aria="Deposit Information" style="font-size: 25px; line-height: 1.5;">
+            <br>BANK : MANDIRI
+            <br>NO REKENING : 10600-2062-1937
+            <br>ATAS NAMA : RAHMINI
+            <p class="text-center text-lg text-gray-300">Anda dapat mendepositkan dana ke akun Anda dengan mudah dan aman. Kami mendukung berbagai metode pembayaran.</p>
+            <!-- Anda bisa menambahkan formulir deposit, instruksi, atau informasi lainnya di sini -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Konten untuk Halaman Mentor -->
+      <section id="mentor-page" class="page-section">
+        <div class="max-w-3xl mx-auto py-16 px-4">
+          <h2 class="text-4xl font-bold text-center text-white mb-8">Expert Mentors</h2>
+          <div class="bg-black/20 backdrop-blur-lg rounded-lg p-8">
+            <p class="text-center text-lg text-gray-300">Jadwalkan sesi dengan mentor ahli kami untuk meningkatkan keterampilan trading Anda dan mendapatkan wawasan eksklusif dari pasar kripto.</p>
+            <!-- Anda bisa menambahkan daftar mentor, detail profil, atau formulir kontak di sini -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Konten untuk Halaman Gathering -->
+      <section id="gathering-page" class="page-section">
+        <div class="py-20 px-4 sm:px-6 lg:px-8 flex justify-center items-center">
+          <div class="invitation-card rounded-3xl p-8 max-w-lg w-full text-center">
+            <div id="guestForm" class="space-y-6">
+              <h1 class="text-3xl font-bold text-yellow-400">Anda Diundang ke <br>CryptoHub Gathering!</h1>
+              <p class="text-md text-gray-300">Silakan masukkan nama Anda untuk melihat undangan.</p>
+              <form id="inviteForm" class="flex flex-col space-y-4">
+                <input type="text" id="guestNameInput" name="guestName" placeholder="Masukkan nama Anda" class="w-full p-3 rounded-lg bg-gray-700/50 text-white placeholder-gray-400 border border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <button type="submit" class="btn-primary-invite w-full text-white font-bold py-3 px-6 rounded-lg text-lg">
+                  Lanjutkan
+                </button>
+              </form>
+            </div>
+    
+            <div id="invitationContent" class="hidden space-y-6">
+              <div class="text-center mb-6">
+                <h1 class="text-3xl font-bold text-yellow-400 mb-2">Selamat Datang, <span id="guestName"></span>!</h1>
+                <p class="text-md text-gray-300">Anda secara resmi diundang ke acara spesial kami.</p>
+              </div>
+              <div class="space-y-4">
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                  <h3 class="text-lg font-semibold mb-1">Acara:</h3>
+                  <p class="text-gray-300">CryptoHub Community Gathering</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                  <h3 class="text-lg font-semibold mb-1">Tanggal & Waktu:</h3>
+                  <p class="text-gray-300">25 Desember 2024, 18:00 - 21:00 WIB</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                  <h3 class="text-lg font-semibold mb-1">Lokasi:</h3>
+                  <p class="text-gray-300">Jakarta, Indonesia</p>
+                </div>
+              </div>
+              <div class="mt-6 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <button onclick="copyInvitationLink()" class="btn-primary-invite font-bold py-3 px-6 rounded-lg text-sm w-full sm:w-auto">
+                  Salin Tautan Undangan
+                </button>
+                <button onclick="editGuestName()" class="bg-gray-700/50 hover:bg-gray-600/50 text-white font-bold py-3 px-6 rounded-lg text-sm w-full sm:w-auto transition-colors">
+                  Ganti Nama
+                </button>
+              </div>
+              <div class="mt-6">
+                <h3 class="text-md font-semibold text-gray-400">Bagikan Undangan</h3>
+                <div class="flex justify-center mt-2 space-x-4">
+                  <a href="#" onclick="shareWhatsApp()" class="btn-share text-4xl" title="Bagikan ke WhatsApp">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-code text-green-500"><path d="M7.9 20A9 9 0 1 0 12 21.5c.3 0 .6-.2.8-.4c.2-.2.3-.5.2-.8s-.4-.5-.7-.3C11.1 21.1 9.5 21 7.9 20Z"/><path d="m10 13-2 2 2 2"/><path d="m14 13 2 2-2 2"/></svg>
+                    </span>
+                  </a>
+                  <a href="#" onclick="shareweb()" class="btn-share text-4xl" title="Lanjutkan Ke Web">
+                    <span>
+                      <svg xmlns="https://bifinanceas.com/h5/#/" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-horizonal text-blue-500"><path d="m3 3 3 9-3 9 19-9Z"/><path d="M6 12h16"/></svg>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Konten untuk Halaman Tentang Kami -->
+      <section id="about-us-page" class="page-section">
+        <div class="max-w-3xl mx-auto py-16 px-4">
+          <h2 class="text-4xl font-bold text-center text-white mb-8">Tentang Kami</h2>
+          <div class="bg-black/20 backdrop-blur-lg rounded-lg p-8">
+            <p class="text-center text-lg text-gray-300">
+              CryptoHub didirikan untuk memberdayakan para trader di seluruh dunia. Misi kami adalah
+              menyediakan platform yang aman, andal, dan edukatif untuk semua orang, baik pemula maupun
+              profesional. Kami percaya bahwa dengan alat yang tepat dan komunitas yang mendukung,
+              siapa pun bisa meraih kesuksesan di dunia kripto.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-black/20 backdrop-blur-lg border-t border-white/10 py-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center text-gray-400">
+          <p>© 2024 CryptoHub. All rights reserved.</p>
+          <p class="mt-2 text-sm">Secure • Reliable • Professional</p>
+        </div>
+      </div>
+    </footer>
   </div>
   <div id="messageBox" class="hidden"></div>
-  <script src="script.js"></script> <!-- Tambahkan ini -->
+  <script src="script.js"></script>
 </body>
 </html>
