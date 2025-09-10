@@ -1,0 +1,128 @@
+/* --- Pengaturan Umum --- */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  background: #b114ff;
+  position: relative;
+  font-family: 'Inter', Arial, sans-serif;
+  transition: background 0.5s ease;
+}
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  background: linear-gradient(120deg, rgba(61, 48, 68, 0.89) 0%, rgba(97, 17, 138, 0.925) 60%, rgba(88, 17, 129, 0.945) 100%);
+  pointer-events: none;
+  backdrop-filter: blur(2px);
+}
+body a, body button, body [type='button'], body input[type='reset'], body input[type='submit'], body [role="button"], body .sweezy-custom-cursor-hover {
+  cursor: pointer;
+}
+[data-mgx-editing]:focus {
+  outline: 2px solid #0000 !important;
+}
+.card {
+  background: rgba(80, 0, 120, 0.55);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(124, 58, 237, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  transition: transform 0.3s cubic-bezier(.4,2,.3,1), background-color 0.3s;
+}
+.card:hover {
+  transform: translateY(-6px) scale(1.03);
+  background: rgba(60, 0, 90, 0.38);
+  box-shadow: 0 12px 32px 0 rgba(219,39,119,0.18);
+}
+
+/* --- Navigasi Mobile --- */
+.mobile-nav {
+  display: none;
+}
+.mobile-nav-links {
+  display: none;
+  flex-direction: column;
+  padding: 1rem;
+  background: rgba(80, 0, 120, 0.37);
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  border: 1px solid rgba(124, 58, 237, 0.1);
+}
+.mobile-nav-links.is-open {
+  display: flex;
+}
+@media (max-width: 767px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .mobile-nav {
+    display: flex !important;
+  }
+}
+
+/* --- Konten Halaman Dinamis --- */
+.page-section {
+  display: none; /* Sembunyikan semua halaman secara default */
+}
+.page-section.active {
+  display: block; /* Tampilkan halaman yang memiliki kelas 'active' */
+}
+.nav-link.active {
+  background: linear-gradient(90deg, #7c3aed 0%, #db2777 100%);
+  color: #fff !important;
+  box-shadow: 0 2px 12px 0 rgba(124,58,237,0.12);
+}
+
+/* --- Styling Khusus untuk Halaman Gathering --- */
+.invitation-card {
+  background: linear-gradient(120deg, rgba(80,0,120,0.18) 0%, rgba(60,0,90,0.12) 100%);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  box-shadow: 0 12px 32px 0 rgba(80,0,120,0.13);
+}
+.btn-primary-invite {
+  background: linear-gradient(90deg, #7c3aed 0%, #db2777 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px 0 rgba(124,58,237,0.12);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary-invite:hover {
+  transform: scale(1.07);
+  box-shadow: 0 6px 18px 0 rgba(219,39,119,0.18);
+}
+.btn-share {
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px 0 rgba(124,58,237,0.10);
+}
+.btn-share:hover {
+  transform: scale(1.13);
+  box-shadow: 0 4px 16px 0 rgba(219,39,119,0.18);
+}
+
+/* --- Kotak Pesan Kustom --- */
+#messageBox {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #7c3aed 0%, #db2777 100%);
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(124,58,237,0.18);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+#messageBox.show {
+  opacity: 1;
+  visibility: visible;
+}
